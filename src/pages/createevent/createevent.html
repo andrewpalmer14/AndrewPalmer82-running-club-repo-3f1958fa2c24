@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons front>
+    <button ion-button icon-only (click)="goBack()"><ion-icon name="arrow-back"></ion-icon><ion-title>Run Event</ion-title></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="no-scroll">
+  <ion-list>
+    <ion-item>
+      <ion-label stacked color="primary">Title</ion-label>
+      <ion-input type="text" [(ngModel)]="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label><ion-icon [name]="icon"></ion-icon> Event Icon</ion-label>
+      <ion-select [(ngModel)]="icon">
+        <ion-option value="walk">Run</ion-option>
+        <ion-option value="people">People</ion-option>
+        <ion-option value="paw">Dog Paw</ion-option>
+        <ion-option value="water">Water</ion-option>
+        <ion-option value="wine">Wine</ion-option>
+        <ion-option value="shirt">Shirt</ion-option>
+        <ion-option value="school">Graduation Cap</ion-option>
+        <ion-option value="rose">Rose</ion-option>
+        <ion-option value="ribbon">Ribbon</ion-option>
+        <ion-option value="rainy">Rain Cloud</ion-option>
+        <ion-option value="pulse">Pulse</ion-option>
+        <ion-option value="pin">Nav Pin</ion-option>
+        <ion-option value="navigate">Navigation</ion-option>
+        <ion-option value="musical-notes">Music</ion-option>
+        <ion-option value="moon">Moon</ion-option>
+        <ion-option value="map">Map</ion-option>
+        <ion-option value="leaf">Leaf</ion-option>
+        <ion-option value="home">Home</ion-option>
+        <ion-option value="heart">Heart</ion-option>
+        <ion-option value="happy">Smiley Face</ion-option>
+        <ion-option value="glasses">Shades</ion-option>
+        <ion-option value="flag">Flag</ion-option>
+        <ion-option value="egg">Egg</ion-option>
+        <ion-option value="clock">Clock</ion-option>
+        <ion-option value="chatbubbles">Chat Bubbles</ion-option>
+        <ion-option value="cash">Cash</ion-option>
+        <ion-option value="calendar">Calendar</ion-option>
+        <ion-option value="american-football">Football</ion-option>
+        <ion-option value="basketball">Basketball</ion-option>
+        <ion-option value="football">Soccer</ion-option>
+        <ion-option value="alarm">Alarm Clock</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime displayFormat="MMM DD, YYYY" min="2017-06-15" max="2018-06-15" [(ngModel)]="date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Time</ion-label>
+      <ion-datetime displayFormat="h:mmA" [(ngModel)]="time"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="primary">Location</ion-label>
+      <ion-input type="text" [(ngModel)]="location"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="primary">Description</ion-label>
+      <ion-input type="text" [(ngModel)]="description"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="primary">Event Access Code</ion-label>
+      <ion-input type="text" [(ngModel)]="code"></ion-input>
+    </ion-item>
+    <ion-footer>
+      <button ion-button full large (click)="create()">Create Event</button>
+    </ion-footer>
+  </ion-list>
+</ion-content>

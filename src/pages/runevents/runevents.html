@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Upcoming Events</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="no-scroll">
+  <ion-card *ngFor="let event of myUpcomingEvents">
+    <ion-card-header>
+      <ion-icon [name]="event.icon" item-start> {{event.title}}</ion-icon>
+      <h2>Location: {{event.location}}</h2>
+      <h2>Date: {{event.date}}</h2>
+    </ion-card-header>
+    <ion-card-content>
+      <h2>Description:</h2>
+      <h4>{{event.description}}</h4>
+    </ion-card-content>
+    <ion-card-content *ngIf="isAdmin">
+      <h2>Access Code:</h2>
+      <h4>{{event.code}}</h4>
+    </ion-card-content>
+    <button ion-button [id]="event._id" full (click)="joinEvent(event.title, event.icon, event._id, event.date, event.location, event.description)">Join Event</button>
+    <button ion-button *ngIf="isAdmin" full small icon-only color="danger" (click)="deleteEvent(event)">
+      <ion-icon name="trash" icon-right></ion-icon>
+    </button>
+  </ion-card>
+  <!--
+    <ion-card *ngFor="let event of myEvents">
+    <ion-card-header>
+      <ion-icon [name]="event.icon" item-start> {{event.title}}</ion-icon>
+      <h2>Location: {{event.location}}</h2>
+      <h2>Date and Time: {{event.date}}</h2>
+    </ion-card-header>
+    <ion-card-content>
+      <h2>Description:</h2>
+      <h4>{{event.description}}</h4>
+    </ion-card-content>
+    <button ion-button [id]="event.id" full (click)="completeEvent(event.id)">Complete Run</button>
+    <button ion-button *ngIf="isAdmin" full small icon-only color="danger" (click)="deleteEvent(event)">
+      <ion-icon name="trash" icon-right></ion-icon>
+    </button>
+  </ion-card>
+    -->
+</ion-content>

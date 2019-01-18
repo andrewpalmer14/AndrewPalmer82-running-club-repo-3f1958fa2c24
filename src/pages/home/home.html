@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Run Club</ion-title>
+      <ion-buttons end *ngIf="isAdmin">
+        <button ion-button icon-only (click)="addEvent()"><ion-icon name="add"></ion-icon></button>
+      </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar color="white">
+    <ion-title class="iontitle">Welcome back {{ name }}!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="no-scroll">
+  <ion-card *ngFor="let event of myCompletedEvents">
+    <ion-card-header>
+      <ion-icon [name]="event.icon" item-start> {{event.title}}</ion-icon>
+      <h2>Location: {{event.location}}</h2>
+      <h2>Date and Time: {{event.date}}</h2>
+    </ion-card-header>
+    <ion-card-content>
+      <h2>Description:</h2>
+      <h4>{{event.description}}</h4>
+    </ion-card-content>
+    <button ion-button [id]="event.id" full (click)="completeEvent(event, event.id)">Complete Run</button>
+  </ion-card>
+
+  <ion-card *ngFor="let event of myClaimedEvents">
+    <ion-card-header>
+      <ion-icon [name]="event.icon" item-start> {{event.title}}</ion-icon>
+      <h2>Location: {{event.location}}</h2>
+      <h2>Date and Time: {{event.date}}</h2>
+    </ion-card-header>
+    <ion-card-content>
+      <h2>Description:</h2>
+      <h4>{{event.description}}</h4>
+    </ion-card-content>
+    <button ion-button [id]="event.id" full disabled>Run Completed!</button>
+  </ion-card>
+  <!--
+  <ion-list>
+    <ion-item-sliding *ngFor="let event of myEvents">
+      <ion-item>
+        <ion-icon [name]="event.icon" item-start> {{event.title}}</ion-icon>
+        <h2>Location: {{event.location}}</h2>
+        <h2>Date and Time: {{event.date}}</h2>
+        <h2>Description:</h2>
+        <h4>{{event.description}}</h4>
+      </ion-item>
+      <ion-item-options *ngIf="isAdmin">
+        <button ion-button color="danger" (click)="deleteEvent(event)">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>-->
+
+
+</ion-content>
+<ion-footer class="iontitle">
+    <h3>Completed Runs: {{ number }}/10</h3>
+    <p>T-shirt earned every 10 completed run events.</p>
+    <button ion-button id="claim" color="secondary" disabled full (click)="claim()">Claim</button>
+</ion-footer>

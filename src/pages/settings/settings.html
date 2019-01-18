@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="no-scroll">
+  <ion-title>User Details</ion-title>
+  <ion-list>
+    <ion-item>
+      <ion-label>First Name</ion-label>
+      <ion-input [(ngModel)]="firstname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Last Name</ion-label>
+      <ion-input [(ngModel)]="lastname"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-title>User Preferences</ion-title>
+  <ion-list>
+    <ion-item>
+      <ion-label>Shirt Type</ion-label>
+      <ion-select [(ngModel)]="type">
+        <ion-option value="mens">Mens</ion-option>
+        <ion-option value="womens">Womens</ion-option>
+        <ion-option value="youth">Youth</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Shirt Size</ion-label>
+      <ion-select [(ngModel)]="size">
+        <ion-option value="xxs">XXS</ion-option>
+        <ion-option value="xs">XS</ion-option>
+        <ion-option value="s">S</ion-option>
+        <ion-option value="m">M</ion-option>
+        <ion-option value="l">L</ion-option>
+        <ion-option value="xl">XL</ion-option>
+        <ion-option value="xxl">XXL</ion-option>
+     </ion-select>
+    </ion-item>
+    <ion-item>
+      <button ion-button full large (click)="presentConfirm()">Save</button>
+    </ion-item>
+  </ion-list>
+  <ion-footer>
+    <button ion-button full large (click)="logout()">Log Out</button>
+  </ion-footer>
+</ion-content>

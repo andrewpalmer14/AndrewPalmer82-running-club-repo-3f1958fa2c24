@@ -1,0 +1,22 @@
+page-createevent {
+    .no-scroll .scroll-content, .no-scroll {
+        overflow: hidden;
+    }
+    
+    .list {
+        margin-top: 20px;
+    }
+
+    .button {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .scroll-content p, .scroll-content h3 {
+        text-align: center;
+    }
+
+    .iontitle {
+        text-align: center;
+    }
+}

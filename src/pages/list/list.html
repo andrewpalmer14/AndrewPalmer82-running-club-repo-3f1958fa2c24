@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Events</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="no-scroll">
+  <ion-card *ngFor="let event of myEvents">
+    <ion-card-header>
+      <ion-icon [name]="event.icon" item-start> {{event.title}}</ion-icon>
+      <h2>Location: {{event.location}}</h2>
+      <h2>Date: {{event.date}}</h2>
+    </ion-card-header>
+    <ion-card-content>
+      <h2>Description:</h2>
+      <h4>{{event.description}}</h4>
+    </ion-card-content>
+    <button ion-button [id]="event.id" full (click)="checkIn(event.id)">
+      <ion-icon name="checkmark-circle" item-start> Check In</ion-icon>
+    </button>
+    <button ion-button color="danger" full small (click)="removeEvent(event.id, event)">
+      <ion-icon name="trash" item-start> Remove Event</ion-icon>
+    </button>
+  </ion-card>
+</ion-content>
